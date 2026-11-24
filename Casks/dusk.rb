@@ -1,6 +1,6 @@
 cask "dusk" do
-  version "0.1.0"
-  sha256 "9c53385a785edb70dedbc97dedac84d5cece03844f1fe9a32ad01402bd29f26c"
+  version "0.2.0"
+  sha256 "208408c0e7f08d43632955682495ae03cedb3bd28e3c5702f73b12c60d8da115"
 
   url "https://github.com/s-azizkhan/dusk-mac/releases/download/v#{version}/Dusk-macOS.zip"
   name "Dusk"
@@ -17,10 +17,9 @@ cask "dusk" do
   app "Dusk.app"
 
   # Ad-hoc signed, not notarised yet.
-  app_path = "#{appdir}/Dusk.app"
   postflight_steps do
     run "/usr/bin/xattr",
-        args:         ["-dr", "com.apple.quarantine", app_path],
+        args:         ["-dr", "com.apple.quarantine", "/Applications/Dusk.app"],
         must_succeed: false
   end
 
