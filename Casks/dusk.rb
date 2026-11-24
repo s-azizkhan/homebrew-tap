@@ -1,6 +1,6 @@
 cask "dusk" do
-  version "0.2.0"
-  sha256 "208408c0e7f08d43632955682495ae03cedb3bd28e3c5702f73b12c60d8da115"
+  version "0.2.1"
+  sha256 "7c0ff609ba13014dd49f568ad20cd22a0187931bd387771924b6b5f7b813eeb1"
 
   url "https://github.com/s-azizkhan/dusk-mac/releases/download/v#{version}/Dusk-macOS.zip"
   name "Dusk"
