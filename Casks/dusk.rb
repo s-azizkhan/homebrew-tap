@@ -12,14 +12,16 @@ cask "dusk" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Dusk.app"
 
   # Ad-hoc signed, not notarised yet.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Dusk.app"]
+  app_path = "#{appdir}/Dusk.app"
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:         ["-dr", "com.apple.quarantine", app_path],
+        must_succeed: false
   end
 
   uninstall quit: "io.github.s-azizkhan.dusk"
